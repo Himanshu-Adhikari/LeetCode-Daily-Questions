@@ -1,0 +1,4 @@
+We sort intervals so that earlier starts come first, and for equal starts, the longer interval comes first.
+Each interval needs at least 2 points inside it. Starting from the interval with the largest end, we greedily pick points from its start onward.
+Every time we pick a point, we reduce the ‘need count’ of all earlier intervals that still include that point.
+Keep placing points until every interval has 2 of them. The total points placed is our answer.
