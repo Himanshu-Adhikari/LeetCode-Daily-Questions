@@ -1,0 +1,7 @@
+Q:
+Given an integer array nums, return the maximum possible sum of elements of the array such that it is divisible by three.
+
+Thoughts:
+if the sum%3
+rem is 1  than 2 choices either remove two rem=2 numbers or one rem=1 number if they are present
+and if rem is 2 then 2 choices as well either remove two rem=1 numbers or one rem=2 number

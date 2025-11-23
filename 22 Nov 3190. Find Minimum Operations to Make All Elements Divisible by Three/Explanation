@@ -1,0 +1,2 @@
+if num%3 then we can  +1 if its rem is 2 
+or we can -1 f its rem is 1 and 0 we don't have to do anything
