@@ -1,0 +1,12 @@
+
+Q:
+You are given an array of integers nums and an integer k.
+Return the maximum sum of a subarray of nums, such that the size of the subarray is divisible by k.
+
+
+Ans:
+Just keep track of what remainders%k you have already seen
+and maintain prefix sum on the go and since we havee negative numbers as well so the whenever pairing match happens of current - prev then we need i%k. that is prev to be less so thatt we get the maximum result for i%k causee if 
+
+k=3 
+at index 1 4 7 10. the sums are 9 , 2 , 13, 30 so we need to have %k in this case 1 to have the least value stored always which is 2 here so save that .
