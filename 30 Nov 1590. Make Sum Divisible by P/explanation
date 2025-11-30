@@ -1,0 +1,20 @@
+Q:
+Given an array of positive integers nums, remove the smallest subarray (possibly empty) such that the sum of the remaining elements is divisible by p. It is not allowed to remove the whole array.
+Return the length of the smallest subarray that you need to remove, or -1 if it's impossible.
+A subarray is defined as a contiguous block of elements in the array.
+
+Ans:
+check how much remainder needs to be removed and now to get the smallest subarray with that remainder.
+have a map that stores remainder and keep there latest index as we need the smallest subarray 
+like i need x remainder to be removed and array is like
+
+[6,3,5,2] and p=9
+so the remainder we need to remove is 7
+m[6]=0
+m[0]=1
+m[5]=2
+m[7]=3
+
+so i will check like m[(cr-req+p)%p] was where seen last which was at index 1 so we return 3-1 i.e 2 as answer
++p is done to handle negative remainder substraction
+
