@@ -1,0 +1,13 @@
+Q: 
+You have n computers. You are given the integer n and a 0-indexed integer array batteries where the ith battery can run a computer for batteries[i] minutes. You are interested in running all n computers simultaneously using the given batteries.
+
+Initially, you can insert at most one battery into each computer. After that and at any integer time moment, you can remove a battery from a computer and insert another battery any number of times. The inserted battery can be a totally new battery or a battery from another computer. You may assume that the removing and inserting processes take no time.
+
+Note that the batteries cannot be recharged.
+
+Return the maximum number of minutes you can run all the n computers simultaneously.
+
+
+Ans:
+So simple just do BS on answers this is what i thought there could be other methods as well.
+So sort batteries in decending orders so that for n computers you assign the most charged batteries onlyyy and the rest other m-n (m size of batteries array) will act as a reserve battery that would take place in place of normal first n battery when that gets discharged .
