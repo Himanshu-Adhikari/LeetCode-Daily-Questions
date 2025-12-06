@@ -1,0 +1,55 @@
+Intuition
+The problem asks us to split the array nums into one or more non-empty contiguous subarrays such that, in every subarray, the difference between the maximum and minimum elements is at most k. We need to compute the total number of such valid partitioning schemes. Let n be the length of nums. We can enumerate each index i and calculate the number of valid partitions for the prefix nums[0⋯i]. Since the number of partitions at index i depends on the starting index j of the last subarray and the number of partitions for the prefix nums[0⋯j−1], dynamic programming is suitable.
+
+Define dp[i+1] as the number of valid partitions for nums[0⋯i]. When i=0, the prefix is empty and is considered a valid base case, so we set dp[0]=1. Suppose the last subarray starts at index j. To compute dp[i], we need the number of partitions for the prefix nums[0⋯j−1], which is dp[j]. Since multiple starting positions may be valid, if the set of valid j values is j 
+0
+​
+ ,j 
+1
+​
+ ,…,j 
+m−1
+​
+ , we obtain the recurrence
+
+dp[i+1]=∑ 
+s=0
+m−1
+​
+ dp[j 
+s
+​
+ ].
+
+Enumerating all such j values yields an O(n 
+2
+ ) algorithm, so we need further optimization.
+
+Next, consider the range of valid j. Fix the right endpoint i. As we extend the window leftward, the subarray grows and the max-min difference might exceed k. Hence the valid starting indices form a continuous interval [L,i], giving:
+
+dp[i+1]=∑ 
+j=L
+i
+​
+ dp[j].
+
+We can compute this using prefix sums. Let
+
+prefix[i+1]=∑ 
+j=0
+i
+​
+ dp[j].
+
+Then
+
+dp[i+1]=prefix[i]−prefix[L−1].
+
+The key step is to find the smallest valid L. If the max-min difference for nums[j⋯i] is within k, then all subarrays contained inside it also satisfy the condition. Thus we only need to maintain the smallest valid j. We can do this using the sliding window technique from problem 239, maintaining the max and min values within the window using an ordered set or a priority queue. When the difference exceeds k, we move the left boundary to restore validity. The final answer is dp[n].
+
+The computation proceeds as follows:
+
+Initialize dp and prefix with dp[0]=1 and prefix[0]=1.
+For each index i, insert nums[i] into the ordered set. If the current max-min difference exceeds k, increment j and remove nums[j] until the window becomes valid again.
+Compute dp[i+1]=prefix[i]−prefix[j−1] and update prefix[i+1], applying the modulus as needed.
+After the loop finishes, return dp[n].
