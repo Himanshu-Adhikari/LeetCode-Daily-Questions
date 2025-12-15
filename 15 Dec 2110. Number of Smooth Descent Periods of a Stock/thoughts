@@ -1,0 +1,11 @@
+Q:
+You are given an integer array prices representing the daily price history of a stock, where prices[i] is the stock price on the ith day.
+
+A smooth descent period of a stock consists of one or more contiguous days such that the price on each day is lower than the price on the preceding day by exactly 1. The first day of the period is exempted from this rule.
+
+Return the number of smooth descent periods.
+
+Ans:
+Just see what is the current length of the satisfying condition goes up to. 
+And just maintain a counter to store that and in the rest the current size of subarray contributes l*(l+1)/2 into the answers as thesee many subarrays can be formed from the 
+l size subarray or you can just enter the current length of l to avoid multiplication overflow integer condition as l+l+1+l+2 ..  is the same as l*(l+1)/2 
