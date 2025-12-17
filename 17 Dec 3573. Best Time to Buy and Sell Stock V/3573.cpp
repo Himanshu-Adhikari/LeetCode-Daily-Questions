@@ -9,6 +9,9 @@
 // Note that you must complete each transaction before starting another. Additionally, you can't buy or sell on the same day you are selling or buying back as part of a previous transaction.
 
 // Return the maximum total profit you can earn by making at most k transactions.
+
+Ans :
+Have states with n,k with operation oppen and type of operation as states to solve this question
 class Solution {
 public:
 #define ll long long
