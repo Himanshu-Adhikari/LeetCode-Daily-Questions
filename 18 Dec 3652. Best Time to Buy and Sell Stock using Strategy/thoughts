@@ -22,4 +22,4 @@ Have two prefix sum arrays one storing prefix sum as it is the other one stores 
 then for every k window do the operation and the score would ne
 
 strategy prefix before that k size window + strategy prefix after the k size window
-+ 
++ current prefix sum of the k size window but just the half part the later k/2 part as the rest half part becomes 0
