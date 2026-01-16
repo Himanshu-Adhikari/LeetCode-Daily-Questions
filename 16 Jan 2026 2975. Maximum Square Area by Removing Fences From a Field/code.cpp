@@ -1,6 +1,5 @@
 class Solution {
 public:
-    
     int maximizeSquareArea(int m, int n, vector<int>& h, vector<int>& v) {
         h.push_back(1);
         v.push_back(1);
